@@ -3,7 +3,7 @@
  * Plugin Name: DocumentCloud
  * Plugin URI: https://www.documentcloud.org/
  * Description: Embed DocumentCloud resources in WordPress content.
- * Version: 0.3
+ * Version: 0.3.1
  * Authors: Chris Amico, Justin Reese
  * License: GPLv2
 ***/
@@ -35,6 +35,8 @@ class WP_DocumentCloud {
     
     function __construct() {
 
+        add_action('admin_init', array(&$this, 'check_dc_plugin_conflict'));
+
         add_action('init', array(&$this, 'register_dc_oembed_provider'));
         add_shortcode('documentcloud', array(&$this, 'handle_dc_shortcode'));
         add_filter('oembed_fetch_url', array(&$this, 'add_dc_arguments'), 10, 3);
@@ -50,6 +52,20 @@ class WP_DocumentCloud {
         add_action('save_post', array(&$this, 'save'));
     }
     
+    function check_dc_plugin_conflict() {
+        if (is_plugin_active('navis-documentcloud/navis-documentcloud.php')) {
+            add_action( 'admin_notices', array(&$this, 'dc_conflict_admin_notice'));
+        }
+    }
+
+    function dc_conflict_admin_notice() {
+        ?>
+        <div class="error">
+            <p><?php _e( '<b>Warning!</b> You have two conflicting DocumentCloud plugins activated. Please deactivate Navis DocumentCloud, which has been replaced by <a target="_blank" href="https://wordpress.org/plugins/documentcloud/">DocumentCloud</a>.', 'documentcloud-plugin-conflict' ); ?></p>
+        </div>
+        <?php
+    }
+
     function register_dc_oembed_provider() {
     /*
         Hello developer. If you wish to test this plugin against your
@@ -315,7 +331,6 @@ class WP_DocumentCloud {
         $default_sizes = $this->get_default_sizes();
         $default_atts = $this->get_default_atts();
         $wide_assets = get_post_meta($post_id, 'wide_assets', true);
-        $documents = get_post_meta($post_id, 'documentcloud', true);
         $matches = array();
                 
         preg_match_all('/'.get_shortcode_regex().'/', $post->post_content, $matches);
@@ -345,11 +360,9 @@ class WP_DocumentCloud {
                     } else {
                         $wide_assets[$meta_key] = false;
                     }
-                    $documents[$meta_key] = $atts;
                 }
             }
         }
-        update_post_meta($post_id, 'documents', $documents);
         update_post_meta($post_id, 'wide_assets', $wide_assets);
     }
     

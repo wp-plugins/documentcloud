@@ -13,7 +13,15 @@ The DocumentCloud WordPress plugin lets you embed [DocumentCloud](https://www.do
 
 ## Usage
 
-This plugin allows you embed DocumentCloud resources using a custom shortcode:
+This plugin allows you to embed DocumentCloud resources using either the raw URL on its own line:
+
+    Here's something you should really take a look at:
+    
+    https://www.documentcloud.org/documents/282753-lefler-thesis.html
+    
+    Isn't that interesting?
+
+Or a custom shortcode:
 
     [documentcloud url="https://www.documentcloud.org/documents/282753-lefler-thesis.html"]
 
@@ -68,6 +76,11 @@ If you find yourself absolutely needing to expire the cache, though, you have tw
 2. Modify the shortcode attributes for the embed, since this is recognized as a new embed by WordPress.
 
 ## Changelog
+
+### 0.3.1
+* Check for old (Navis) plugin and warn admins of conflict
+* Add note about raw URLs to README
+* Stop storing shortcode attributes in the `postmeta` table
 
 ### 0.3
 * Add support for embedding notes.

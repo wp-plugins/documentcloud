@@ -13,7 +13,15 @@ Embed DocumentCloud resources in WordPress content.
 
 [DocumentCloud](https://www.documentcloud.org/) is a service that allows journalists to analyze, annotate and publish documents, hosted by Investigative Reporters & Editors. Initial development of this plugin supported by [NPR](http://www.npr.org) as part of [StateImpact](http://stateimpact.npr.org) project.
 
-This plugin allows you embed DocumentCloud resources using a custom shortcode:
+This plugin allows you to embed DocumentCloud resources using either the raw URL on its own line:
+
+    Here's something you should really take a look at:
+    
+    https://www.documentcloud.org/documents/282753-lefler-thesis.html
+    
+    Isn't that interesting?
+
+Or a custom shortcode:
 
     [documentcloud url="https://www.documentcloud.org/documents/282753-lefler-thesis.html"]
 
@@ -64,6 +72,11 @@ You can read more about publishing and embedding DocumentCloud resources on http
 4. Optional: Set a default width/height for all DocumentCloud embeds (which can be overridden on a per-embed basis with the `height/width` attributes) at Settings > DocumentCloud. (This default width will only be used if you set `responsive="false"` on an embed.)
 
 == Changelog ==
+
+= 0.3.1 =
+* Check for old (Navis) plugin and warn admins of conflict
+* Add note about raw URLs to README
+* Stop storing shortcode attributes in the `postmeta` table
 
 = 0.3 =
 * Add support for embedding notes.
