@@ -11,7 +11,7 @@ The DocumentCloud WordPress plugin lets you embed [DocumentCloud](https://www.do
 3. In your posts, embed documents or notes using the DocumentCloud button or the `[documentcloud]` shortcode
 4. Optional: Set a default width/height for all DocumentCloud embeds (which can be overridden on a per-embed basis with the `height/width` attributes) at Settings > DocumentCloud. (This default width will only be used if you set `responsive="false"` on an embed.)
 
-**Upgrading from Navis DocumentCloud** If you're currently using the Navis DocumentCloud plugin (from which this plugin was built), you'll want to deactivate or delete it before installing this plugin.
+**Upgrading from Navis DocumentCloud:** If you're currently using the Navis DocumentCloud plugin (from which this plugin was built), you'll want to deactivate or delete it before installing this plugin.
 
 ## Usage
 
@@ -78,6 +78,9 @@ If you find yourself absolutely needing to expire the cache, though, you have tw
 2. Modify the shortcode attributes for the embed, since this is recognized as a new embed by WordPress.
 
 ## Changelog
+
+### 0.3.2
+* Implement a few best practice security measures
 
 ### 0.3.1
 * Check for old (Navis) plugin and warn admins of conflict
