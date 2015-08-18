@@ -2,7 +2,7 @@
 Contributors: chrisamico, reefdog
 Tags: documentcloud, documents, journalism, reporting, research
 Requires at least: 3.2
-Tested up to: 4.2.4
+Tested up to: 4.3
 Stable tag: trunk
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -11,7 +11,7 @@ Embed DocumentCloud resources in WordPress content.
 
 == Description ==
 
-[DocumentCloud](https://www.documentcloud.org/) is a service that allows journalists to analyze, annotate and publish documents, hosted by Investigative Reporters & Editors. Initial development of this plugin supported by [NPR](http://www.npr.org) as part of [StateImpact](http://stateimpact.npr.org) project.
+[DocumentCloud](https://www.documentcloud.org/) is a service that allows journalists to analyze, annotate and publish documents, hosted by Investigative Reporters & Editors. Initial development of this plugin supported by [NPR](http://www.npr.org) as part of the [StateImpact](http://stateimpact.npr.org) project.
 
 This plugin allows you to embed DocumentCloud resources using either the raw URL on its own line:
 
